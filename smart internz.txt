@@ -1,0 +1,160 @@
+INDEX.HTML :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Vesangi Aarthi</h1>
+        <nav>
+            <ul>
+                <li><a href="#bio">Bio</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="bio">
+        <h2>About Me</h2>
+        <img src="profile.jpg" alt="Profile Photo" id="profile-pic">
+        <p>Hello! I am a third-year B.Tech student with a strong interest in full stack development. My studies in computer science have equipped me with skills in both front-end and back-end technologies. I have experience with HTML, CSS, JavaScript, React, Node.js, and databases like MongoDB and MySQL. Through personal projects and internships, I have built and maintained web applications, gaining practical knowledge.I am dedicated to continuous learning and applying my skills to real-world challenges..</p>
+    </section>
+
+    <section id="hobbies">
+        <h2>My Hobbies</h2>
+        <ul>
+            <li>Coding</li>
+            <li>Reading</li>
+            <li>Traveling</li>
+            <li>Photography</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+STYLES.CSS:
+
+body {
+    font-family: verdana ;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white ;
+}
+
+header {
+    background-color: #333;
+    color: yellow ;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+   
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+    font-family : Gill Sans;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration:underline ;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color:black ;
+    position: relative;
+    z-index: 1;
+}
+
+
+h2 {
+    color: #fff;
+}
+
+#profile-pic {
+    max-width: 200px;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+SCRIPT.JS:
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+    
+    if(name === '' || email === '' || message === '') {
+        alert('Please fill in all fields');
+    } else {
+        alert('Thank you for your message, ' + name + '!');
+        document.getElementById('contact-form').reset();
+    }
+});
